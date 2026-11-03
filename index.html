@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineScope | Discover Movies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">Cine<span>Scope</span></h2>
+
+        <nav>
+            <a href="#" class="active">🏠 Home</a>
+            <a href="#">🔥 Trending</a>
+            <a href="#">🎬 Movies</a>
+            <a href="#">❤️ Favourites</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Discover your next favourite movie.</p>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>Discover Movies</h1>
+                <p>Explore movies you'll love.</p>
+            </div>
+
+            <div class="profile">
+                <span>🎥</span>
+                <p>Movie Explorer</p>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for movies..."
+            >
+            <button id="searchBtn">Search</button>
+        </section>
+
+        <!-- Featured Movie -->
+        <section class="featured">
+            <div class="featured-content">
+                <span class="tag">FEATURED MOVIE</span>
+                <h2>Discover Amazing Stories</h2>
+                <p>
+                    From thrilling adventures to unforgettable
+                    stories, find your next movie experience.
+                </p>
+                <button>Explore Movies</button>
+            </div>
+        </section>
+
+        <!-- Movie Section -->
+        <section class="movies-section">
+            <div class="section-heading">
+                <h2>Popular Movies</h2>
+                <p>Explore what's popular right now.</p>
+            </div>
+
+            <div class="movie-grid" id="movieGrid">
+                <!-- Movies will appear here using JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

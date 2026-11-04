@@ -1,83 +1,306 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineScope | Discover Movies</title>
+
+    <meta name="description"
+        content="Discover popular movies, explore genres and find your next favourite film with CineScope.">
+
+    <title>CineScope | Movie Discovery</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Sidebar -->
+    <!-- SIDEBAR -->
+
     <aside class="sidebar">
+
         <h2 class="logo">Cine<span>Scope</span></h2>
 
         <nav>
-            <a href="#" class="active">🏠 Home</a>
-            <a href="#">🔥 Trending</a>
-            <a href="#">🎬 Movies</a>
-            <a href="#">❤️ Favourites</a>
+
+            <a href="#" id="homeLink" class="active">
+                ⌂ Home
+            </a>
+
+            <a href="#popular" id="popularLink">
+                🔥 Popular
+            </a>
+
+            <a href="#popular">
+                🎬 Movies
+            </a>
+
+            <a href="#favorites" id="favoritesLink">
+                ♥ Favorites
+            </a>
+
+            <a href="#footer">
+                ℹ About
+            </a>
+
         </nav>
 
         <div class="sidebar-footer">
-            <p>Discover your next favourite movie.</p>
+
+            <p>Your next favourite movie is waiting.</p>
+
+            <small>Powered by TMDB</small>
+
         </div>
+
     </aside>
 
-    <!-- Main Content -->
+
+    <!-- MAIN CONTENT -->
+
     <main class="main-content">
 
-        <!-- Header -->
+
+        <!-- HEADER -->
+
         <header class="header">
+
             <div>
+
                 <h1>Discover Movies</h1>
-                <p>Explore movies you'll love.</p>
+
+                <p>
+                    Explore amazing movies from around the world.
+                </p>
+
             </div>
 
             <div class="profile">
+
                 <span>🎥</span>
-                <p>Movie Explorer</p>
+
+                <span>Movie Explorer</span>
+
             </div>
+
         </header>
 
-        <!-- Search Section -->
+
+        <!-- SEARCH SECTION -->
+
         <section class="search-section">
+
             <input
-                type="text"
+                type="search"
                 id="searchInput"
-                placeholder="Search for movies..."
+                placeholder="Search any movie..."
+                autocomplete="off"
             >
-            <button id="searchBtn">Search</button>
+
+            <button id="searchBtn">
+                Search
+            </button>
+
         </section>
 
-        <!-- Featured Movie -->
+
+        <!-- FEATURED SECTION -->
+
         <section class="featured">
+
             <div class="featured-content">
-                <span class="tag">FEATURED MOVIE</span>
-                <h2>Discover Amazing Stories</h2>
+
+                <span class="tag">
+                    YOUR MOVIE DESTINATION
+                </span>
+
+                <h2>
+                    Discover Your Next Favourite Movie
+                </h2>
+
                 <p>
-                    From thrilling adventures to unforgettable
-                    stories, find your next movie experience.
+                    Explore exciting adventures, supernatural stories,
+                    romance, comedy and movies from around the world.
                 </p>
-                <button>Explore Movies</button>
+
+                <button id="exploreBtn">
+                    Explore Movies
+                </button>
+
             </div>
+
         </section>
 
-        <!-- Movie Section -->
-        <section class="movies-section">
+
+        <!-- GENRE FILTER -->
+
+        <section class="genre-section">
+
+            <h2>Explore by Genre</h2>
+
+            <div class="genre-list" id="genreList">
+
+                <button
+                    class="genre-btn active"
+                    data-genre="all"
+                >
+                    All Movies
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- POPULAR MOVIES -->
+
+        <section class="movies-section" id="popular">
+
             <div class="section-heading">
-                <h2>Popular Movies</h2>
-                <p>Explore what's popular right now.</p>
+
+                <div>
+
+                    <h2 id="sectionTitle">
+                        Popular Movies
+                    </h2>
+
+                    <p id="sectionDescription">
+                        Discover movies people are watching.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="movie-grid" id="movieGrid">
-                <!-- Movies will appear here using JavaScript -->
+
+            <!-- STATUS MESSAGE -->
+
+            <div
+                id="statusMessage"
+                class="status-message"
+            >
+                Loading movies...
             </div>
+
+
+            <!-- MOVIE GRID -->
+
+            <div
+                class="movie-grid"
+                id="movieGrid"
+            ></div>
+
+
+            <!-- LOAD MORE -->
+
+            <div class="pagination">
+
+                <button id="loadMoreBtn" hidden>
+                    Load More Movies
+                </button>
+
+            </div>
+
         </section>
+
+
+        <!-- FAVORITES SECTION -->
+
+        <section
+            class="movies-section"
+            id="favorites"
+            hidden
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>My Favorite Movies ♥</h2>
+
+                    <p>
+                        Your personally saved movie collection.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMPTY FAVORITES MESSAGE -->
+
+            <p id="favoritesEmpty" hidden>
+                You haven't added any favorites yet.
+                Explore movies and tap the heart to save them!
+            </p>
+
+
+            <!-- FAVORITES GRID -->
+
+            <div
+                class="movie-grid"
+                id="favoritesGrid"
+            ></div>
+
+        </section>
+
+
+        <!-- MOVIE DETAILS MODAL -->
+
+        <div
+            class="modal"
+            id="movieModal"
+        >
+
+            <div class="modal-content">
+
+                <button
+                    class="close-modal"
+                    id="closeModal"
+                    aria-label="Close movie details"
+                >
+                    &times;
+                </button>
+
+                <div id="modalContent">
+
+                    Loading movie details...
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer id="footer">
+
+            <p>
+                CineScope &copy; 2026
+            </p>
+
+            <p>
+                This product uses the TMDB API but is not endorsed
+                or certified by TMDB.
+            </p>
+
+        </footer>
+
 
     </main>
 
+
+    <!-- API CONFIGURATION -->
+
+    <script src="config.js"></script>
+
+    <!-- MAIN JAVASCRIPT -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>

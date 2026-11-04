@@ -1,0 +1,4 @@
+# Protect TMDB credentials
+.env
+# Other files
+node_modules/
